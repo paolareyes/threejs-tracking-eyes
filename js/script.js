@@ -5,6 +5,7 @@ var target = new THREE.Vector3();
 var mouseX = 0, mouseY = 0;
 var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
+var currentWidth = screen.width;
 
 window.onload=function(){
   init();
@@ -12,6 +13,8 @@ window.onload=function(){
 }
 
 window.addEventListener("mousemove", onmousemove, false);
+
+
 
 function init() {
 
@@ -60,10 +63,18 @@ function init() {
                   })
               }
           } );
-          eye1.scale.set(30,30,30);
-          eye1.position.y = 0;
-          eye1.position.x = 100;
-          eye1.rotation.y = 0;
+          if(currentWidth < 600){
+            eye1.scale.set(20,20,20);
+            eye1.position.y = 50;
+            eye1.position.x = 0;
+            eye1.rotation.y = 0;
+          } else {
+            eye1.scale.set(30,30,30);
+            eye1.position.y = 0;
+            eye1.position.x = 100;
+            eye1.rotation.y = 0;
+          }
+
           scene.add( eye1 );
     } );
    // load eye2 (left)
@@ -80,10 +91,17 @@ function init() {
                   })
               }
           } );
-          eye2.scale.set(30,30,30);
-          eye2.position.y = 0;
-          eye2.position.x = -100;
-          eye2.rotation.y = 0;
+          if(currentWidth < 600){
+            eye2.scale.set(20,20,20);
+            eye2.position.y = -50;
+            eye2.position.x = 0;
+            eye2.rotation.y = 0;
+          } else {
+            eye2.scale.set(30,30,30);
+            eye2.position.y = 0;
+            eye2.position.x = -100;
+            eye2.rotation.y = 0;
+          }
           scene.add( eye2 );
     } );
 
